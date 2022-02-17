@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;400;500;600;700;800&display=swap');
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: #fefefe;
+    /* overflow: hidden; */
+    font-family: 'Kumbh Sans',sans-serif;
+}
+
+.card {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 50%;
+        height: 50%;
+        text-align: center;
+        align-content: center;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        margin: auto;
+        background: hsla(183,100%,15%,1);
+        border-radius: 10px;
+        box-shadow: 0 0 20px 1px hsla(183,100%,15%,1);
+}
+
+
+.headers h1 span{
+    color: white;
+    font-size: 40px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.7s;
+}
+.headers h1 span:hover{
+    color: rgb(10, 214, 214);
+}
+
+.headers .para1 {
+    color: #fff;
+    opacity: 0.9;
+    letter-spacing: 1.2px;
+}
+.headers .para2 {
+    color: #fff;
+    opacity: 0.9;
+    letter-spacing: 1.2px;
+}
+
+.buttons .proceed {
+    margin-top: 5%;
+    padding: 20px 30px 20px 30px;
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 8px;
+    background-color: #fff;
+    letter-spacing: 1.15px;
+}
+
+.buttons button:hover {
+    background-color: rgb(85, 245, 245);
+    /* color: white; */
+}

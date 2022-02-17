@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/aboutus.css}">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.9.0/css/all.min.css" rel="stylesheet">
+    <title>BookLess | AboutUs</title>
+</head>
+<body>
+   <section class="container">
+    <nav class="navigation">
+        <div class="logo">
+            <img th:src="@{/Images/bookless_logo.png}" onclick="window.location.href = '/'" alt="Logo">
+        </div>
+        <div class="options">
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/aboutus" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="About">
+                                About
+                            </span>
+                            <span class="menu__second-word" data-hover="Us">
+                                Us
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="New">
+                                New
+                            </span>
+                            <span class="menu__second-word" data-hover="Arrivals">
+                                Arrivals
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Our">
+                                Our
+                            </span>
+                            <span class="menu__second-word" data-hover="Community">
+                                Commumity
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+                <li class="menu__item">
+                    <a href="/contactus" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Contact">
+                                Contact
+                            </span>
+                            <span class="menu__second-word" data-hover="Us">
+                                Us
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="menu__item">
+                    <a href="/signin" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Sign">
+                                Sign
+                            </span>
+                            <span class="menu__second-word" data-hover="In">
+                                In
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="menu__item signup">
+                    <a href="/signup" class="menu__link signup_link">
+                        <span class="menu__title">
+                            <span class="menu__first-word signup_first-word" data-hover="Sign">
+                                Sign
+                            </span>
+                            <span class="menu__second-word signup_second-word" data-hover="Up">
+                                Up
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        
+        </div>
+    </nav>
+    <div class="midbody">
+        <div class="header">
+            <h1>Want to know about us</h1>
+        </div>
+        <div class="team">
+            <h1>Our Team</h1>
+        </div>
+        <div class="cards">
+            <div class="card">
+                <div class="cardtop">
+                    <img th:src="@{/Images/Profile_pic/Chandan.jpg}" alt="">
+                </div>
+                <div class="cardmid">
+                    <h3>Chandan</h3>
+                    <h2>Software Developer</h2>
+                    <h4>Student</h4>
+                    <p>Grounded and solution oriented Computer Science undergrad with a wide variety of programming knowledge. Adept at motivating self and others.</p>
+                </div>
+                <div class="cardfoot">
+                    <ul>
+                        <li><a href="https://www.github.com/Chandan393" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.instagram.com/_chandan_333/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/chandan-gope-03b0b621a/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardtop">
+                    <img th:src="@{/Images/Profile_pic/Saurav.jfif}" alt="">
+                </div>
+                <div class="cardmid">
+                    <h3>Saurav</h3>
+                    <h2>Software Developer</h2>
+                    <h4>Student&nbsp; | &nbsp;Team Leader</h4>
+                    <p>Detail Oriented Computer Science Student with an understanding of Java and 3 star holder at Codechef. Seeking to use coding and debugging skills.</p>
+                </div>
+                <div class="cardfoot">
+                    <ul>
+                        <li><a href="https://www.github.com/Sauravionic" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.instagram.com/saurav.ionic" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://twitter.com/sauravionic/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/saurav-srivastava-4b71b5188/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardtop">
+                    <img th:src="@{/Images/Profile_pic/Soumil.JPG}" alt="">
+                </div>
+                <div class="cardmid">
+                    <h3>Soumil</h3>
+                    <h2>Software Developer</h2>
+                    <h4>Student</h4>
+                    <p>I am a practical knowledge seeker. To work in an environment where my skills and knowledge reflects the growth of the company and enhance my knowledge.</p>
+                </div>
+                <div class="cardfoot">
+                    <ul>
+                        <li><a href="https://www.github.com/SoumilTaneja" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="cardtop">
+                    <img th:src="@{/Images/Profile_pic/Nitin.jpg}" alt="">
+                </div>
+                <div class="cardmid">
+                    <h3>Nitin</h3>
+                    <h2>Software Developer</h2>
+                    <h4>Student</h4>
+                    <p>A highly accomplished, skilled and knowledgeable computer science student with extensive knowledge of programming and computer applications.</p>
+                </div>
+                <div class="cardfoot">
+                    <ul>
+                        <li><a href="https://www.github.com/Nitinchoudhary2916" target="_blank"><i class="fab fa-github"></i></a></li>
+                        <li><a href="https://www.instagram.com/nitin_choudhary2901" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                        <li><a href="https://twitter.com/Nitin7529?t=1FsYC62s0mIoiIBs9ePTzQ&s=08" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                        <li><a href="https://www.linkedin.com/in/nitin-choudhary-5aa765207" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class = "footer">
+        <div class="footerlogo">
+            <h1><span>BookLess</span></h1>
+            <p>Dive into the virtual world of imagination</p>
+        </div>
+        <div class="footericons">
+            <ul>
+                <li><a href="https://www.github.com/Sauravionic" target="_blank"><i class="fab fa-github"></i></a></li>
+                <li><a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-2x"></i></a></li>
+                <li><a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter fa-2x"></i></a></li>
+                <li><a href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a></li>
+            </ul>
+        </div>
+        <div class="name">
+            <p>Ionic</p>
+        </div>    
+    </footer>
+   </section> 
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" th:href="@{/css/contactus.css}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script th:src="@{/js/contactus.js}" defer></script>
+    <title>BookLess | Contact Us</title>
+</head>
+<body>
+    <nav class="navigation">
+        <div class="logo">
+            <img th:src="@{/Images/bookless_logo.png}" onclick="window.location.href = '/'" alt="Logo">
+        </div>
+        <div class="options">
+            <ul class="menu">
+                <li class="menu__item">
+                    <a href="/aboutus" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="About">
+                                About
+                            </span>
+                            <span class="menu__second-word" data-hover="Us">
+                                Us
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="New">
+                                New
+                            </span>
+                            <span class="menu__second-word" data-hover="Arrivals">
+                                Arrivals
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+                <li class="menu__item">
+                    <a href="#" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Our">
+                                Our
+                            </span>
+                            <span class="menu__second-word" data-hover="Community">
+                                Commumity
+                            </span>
+                        </span>
+                    </a>
+                </li>
+        
+                <li class="menu__item">
+                    <a href="/contactus" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Contact">
+                                Contact
+                            </span>
+                            <span class="menu__second-word" data-hover="Us">
+                                Us
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="menu__item">
+                    <a href="/signin" class="menu__link">
+                        <span class="menu__title">
+                            <span class="menu__first-word" data-hover="Sign">
+                                Sign
+                            </span>
+                            <span class="menu__second-word" data-hover="In">
+                                In
+                            </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li class="menu__item signup">
+                    <a href="/signup" class="menu__link signup_link">
+                        <span class="menu__title">
+                            <span class="menu__first-word signup_first-word" data-hover="Sign">
+                                Sign
+                            </span>
+                            <span class="menu__second-word signup_second-word" data-hover="Up">
+                                Up
+                            </span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        
+        </div>
+    </nav>
+    <section class="container">
+        <span class="big-circle"></span>
+        <img th:src="@{/Images/Contact_Us/shape.png}" class="square" alt="" />
+        <div class="form">
+          <div class="contact-info">
+            <h3 class="title">Let's get in touch</h3>
+            <p class="text">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe
+              dolorum adipisci recusandae praesentium dicta!
+            </p>
+  
+            <div class="info">
+              <div class="information">
+                <img th:src="@{/Images/Contact_Us/location.png}" class="icon" alt="" />
+                <p>DIT University, Dehradun, Uttarakhand - 248009</p>
+              </div>
+              <div class="information">
+                <img th:src="@{/Images/Contact_Us/email.png}" class="icon" alt="" />
+                <p>srivastava20000saurav@gmail.com</p>
+              </div>
+              <div class="information">
+                <img th:src="@{/Images/Contact_Us/phone.png}" class="icon" alt="" />
+                <p>123-456-789</p>
+              </div>
+            </div>
+  
+            <div class="social-media">
+              <p>Connect with us :</p>
+              <div class="social-icons">
+                <a href="https://www.github.com/Sauravionic" target="_blank">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.twitter.com/sauravionic" target="_blank">
+                  <i class="fab fa-twitter"></i>
+                </a>
+                <a href="https://www.instagram.com/saurav.ionic" target="_blank">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/saurav-srivastava-4b71b5188/" target="_blank">
+                  <i class="fab fa-linkedin-in"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+  
+          <div class="contact-form">
+            <span class="circle one"></span>
+            <span class="circle two"></span>
+  
+            <form action="#" autocomplete="off">
+              <h3 class="title">Contact us</h3>
+              <div class="input-container">
+                <input type="text" name="name" class="input" />
+                <label for="">Username</label>
+                <span>Username</span>
+              </div>
+              <div class="input-container">
+                <input type="email" name="email" class="input" />
+                <label for="">Email</label>
+                <span>Email</span>
+              </div>
+              <div class="input-container">
+                <input type="tel" name="phone" class="input" />
+                <label for="">Phone</label>
+                <span>Phone</span>
+              </div>
+              <div class="input-container textarea">
+                <textarea name="message" class="input"></textarea>
+                <label for="">Message</label>
+                <span>Message</span>
+              </div>
+              <input type="submit" value="Send" class="btn" />
+            </form>
+          </div>
+        </div>
+    </section>
+</body>
+</html>

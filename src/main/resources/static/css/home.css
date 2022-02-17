@@ -1,0 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@100;300;400;500;600;700;800&display=swap');
+*,*::before,*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: #fefefe;
+}
+a {
+    outline: 0;
+    text-decoration: none;
+}
+.navigation {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    border-bottom: 3px solid #ccd7d7;
+    font-family: 'Pathway Gothic One', sans-serif;
+    font-size: 15px;
+}
+.logo {
+    padding-left: 3%;
+    cursor: pointer;
+}
+.logo img {
+    height: 100px;
+    width: 100px;
+}
+.options{
+    display: flex;
+    align-items: center;
+    flex-basis: 50%;
+    font-size:medium;
+}
+.menu {
+    display: flex;
+    justify-content: center;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding-left: 0;
+}
+.menu__item {
+    display: inline-block;
+    white-space: nowrap;
+}
+.menu__item:last-child .menu__link {
+    border-right: 0;
+}
+.menu__link {
+    display: block;
+    padding: 6px 30px 3px;
+    border-right: 2px dotted #ccd7d7;
+}
+.menu__link:hover .menu__first-word, .menu__link:focus .menu__first-word {
+    transform: translate3d(0, -105%, 0);
+}
+.menu__link:hover .menu__second-word, .menu__link:focus .menu__second-word {
+    transform: translate3d(0, 105%, 0);
+}
+/* @media screen and (min-width: 768px) {
+    .menu__link {
+        padding: 6px 40px 3px;
+   }
+} */
+.menu__title {
+    display: inline-block;
+    overflow: hidden;
+}
+.menu__first-word, .menu__second-word {
+    display: inline-block;
+    position: relative;
+    transition: transform 0.3s;
+}
+.menu__first-word::before, .menu__second-word::before {
+    position: absolute;
+    content: attr(data-hover);
+}
+.menu__first-word {
+    color: #0c8040;
+}
+.menu__first-word::before {
+    top: 105%;
+    color: #626262;
+}
+.menu__second-word {
+    color: #626262;
+}
+.menu__second-word::before {
+    bottom: 105%;
+    color: #0c8040;
+}
+.signup_link {
+    background: hsl(220,13%,13%);
+    margin-left: 20px;
+    margin-top: -3px;
+    margin-right: 20px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    border-radius: 11px;
+    text-align: center;
+}
+.signup_first-word {
+    color: #07e26a;
+}
+.signup_first-word::before {
+    color: rgb(247, 242, 242);
+}
+.signup_second-word {
+    color: rgb(248, 244, 244);
+}
+.signup_second-word::before {
+    color: #07e26a;
+}
+.darkmode {
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
+    height: 50px;
+    width: 50px;
+    cursor: pointer;
+}
+.darkbutton {
+    background-image: url("../Images/dark-mode.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid white;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+.darkbutton:hover {
+    background-image:url("../Images/white-mode.png")
+}
+.whiteButton {
+    background-image: url("../Images/white-mode.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    border: 1px solid black;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    outline: none;
+}
+.whiteButton:hover {
+    background-image: url("../Images/dark-mode.png");
+}
+.hidden { 
+    display: none;
+}
+
+.midbody {
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+    padding-top: 2px;
+    padding-left: 35px;
+    padding-right: 50px;
+    /* border-bottom: 3px solid #ccd7d7; */
+}
+.midbody .bigimage{
+    /* height: 50%; */
+    width: 45%;
+    flex-basis: 50%;
+}
+
+.midcontent {
+    flex-basis: 40%;
+    text-align: left;
+    display: flex;
+    font-family: 'Kumbh Sans', sans-serif;
+    padding-right: 2%;
+    /* justify-content: center; */
+}
+.midcontent .cardcontent {
+    align-self: center;
+}
+.cardcontent .inc {
+    font-weight: 700;
+    letter-spacing: 1.7px;
+    color: #0c8040;
+}
+.cardcontent h1 {
+    font-size: 37px;
+    color: hsl(220,13%,13%);
+    margin-bottom: 0;
+    margin-top: 0;
+    letter-spacing: 1.2px;
+}
+.cardcontent h1 span {
+    color: #05a04b;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.cardcontent h1 span:hover {
+    transform: scale(1.25);
+}
+.cardcontent .exist {
+    margin-bottom: 3px;
+    color: rgb(87, 93, 104);
+    letter-spacing: 1px;
+}
+.cardcontent .para {
+    margin-top: 9px;
+    word-spacing: 2px;
+    letter-spacing: 0.4px;
+    color: rgb(107, 116, 104);
+}
+.cardcontent .midbuttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 35px;
+    margin-right: 15px;
+}
+.midbuttons button {
+    width: 50%;
+    height: 50px;
+    font-family: 'Kumbh Sans',sans-serif;
+    font-size: 17px;
+    font-weight: 500;
+    cursor: pointer;
+    background: #05a04b;
+    border: none;
+    border-radius: 10px;
+    color: white;
+    outline: none;
+    transition: all 0.5s;
+}
+.midbuttons button:hover {
+    background: hsl(220,13%,13%);
+}
+.midbuttons .signin {
+    margin-right: 5px;
+}
+.midbuttons .signup {
+    margin-left: 5px;
+}
+
+.footer {
+    text-align: center;
+    background: hsl(220,13%,13%);
+    font-family: 'Kumbh Sans',sans-serif;
+    padding-top: 5px;
+    padding-bottom: 2px;
+    margin-top: 3%;
+}
+.footer .footerlogo h1 {
+    margin-bottom: 0;
+}
+.footer .footerlogo h1 span {
+    color: white;
+    letter-spacing: 2px;
+    font-size: 28px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer .footerlogo h1 span:hover {
+    color: #05a04b;
+    transform: scale(1.25);
+}
+.footerlogo p {
+    color: rgb(201, 207, 198);
+    font-size: 15px;
+    margin-top: 8px;
+}
+.footericons ul{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    margin-top: 22px;
+    padding: 0;
+}
+.footericons ul li {
+    list-style: none;
+}
+.footericons ul li {
+    margin-right: 18px;
+}
+.footericons .fab {
+    color: white;
+    cursor: pointer;
+    font-size: 27px;
+    transition: 0.3s;
+}
+.footericons .fab:hover {
+    color: #05a04b;
+    transform: scale(1.25);
+}
+
+.footer .name p {
+    color: white;
+    margin-bottom: 2px;
+}
