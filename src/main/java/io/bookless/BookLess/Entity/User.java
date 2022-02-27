@@ -22,10 +22,16 @@ public class User{
     private String lastname;
 
     @Column(name = "email")
+    @Email(message = "Please Enter a valid email address")
     private String email;
 
     @Column(name = "password")
     private String password;
+
+    @Column(name = "verification_code", length = 64)
+    private String verificationCode;
+
+    private boolean enabled;
 
     @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JoinTable(
