@@ -243,3 +243,9 @@ form input {
     transition: all 0.7s;
     width: 87%;
 }
+
+.error_span {
+    display: block;
+    margin-top: 20px;
+    color: #e40909;
+}
