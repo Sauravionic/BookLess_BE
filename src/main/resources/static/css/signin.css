@@ -204,3 +204,8 @@ form label {
     top: 34%;
     left: 40%;
 }
+.error_span {
+    display: block;
+    margin-top: 20px;
+    color: #e40909;
+}

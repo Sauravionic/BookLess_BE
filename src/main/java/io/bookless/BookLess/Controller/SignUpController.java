@@ -3,7 +3,10 @@ package io.bookless.BookLess.Controller;
 import io.bookless.BookLess.DTO.UserRegistrationDTO;
 import io.bookless.BookLess.Service.UserService;
 import org.hibernate.exception.ConstraintViolationException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -16,6 +19,8 @@ import java.sql.SQLIntegrityConstraintViolationException;
 @Controller
 @RequestMapping("/signup")
 public class SignUpController {
+
+
 
     private UserService userService;
     private boolean emailError = false;

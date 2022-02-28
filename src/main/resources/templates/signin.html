@@ -106,10 +106,10 @@
                 <h1>Sign In</h1>
             </div>
             <div class="formControl">
-                <form action="#">
+                <form th:action="@{/signin}" method="post">
                     <div class="emailDiv">
                         <label for="email">E-mail</label>
-                        <input type="email" name="email" id="email" class="email" placeholder="E-mail" required>
+                        <input type="text" name="username" id="email" class="email" placeholder="E-mail" required>
                     </div>
                     <div class="passwordDiv">
                         <label for="password">Password</label>
@@ -119,6 +119,7 @@
                         <button type="submit" class="submit" id="submit"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
                 </form>
+                <span class = "error_span" th:if="${param.error}">Could not verify the data entered.<br> Please re-enter or register with us</span>
             </div>
         </div>
     </div>

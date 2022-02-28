@@ -1,8 +1,11 @@
 package io.bookless.BookLess.Entity;
 
+import org.springframework.context.annotation.Bean;
+
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.Collection;
+
 
 @Entity
 @Table(name = "user", uniqueConstraints = @UniqueConstraint(columnNames = "email"))
@@ -97,5 +100,19 @@ public class User{
 
     public void setRoles(Collection<Role> roles) {
         this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", verificationCode='" + verificationCode + '\'' +
+                ", enabled=" + enabled +
+                ", roles=" + roles +
+                '}';
     }
 }
