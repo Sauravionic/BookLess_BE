@@ -50,8 +50,15 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/signin")
                 .permitAll()
                 .loginProcessingUrl("/signin")
-                .defaultSuccessUrl("/")
-                .failureUrl("/signin?error");
+                .defaultSuccessUrl("/signup")
+                .failureUrl("/signin?error")
+                .and()
+                .logout()
+                .invalidateHttpSession(true)
+                .clearAuthentication(true)
+                .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
+                .logoutSuccessUrl("/signin?signout")
+                .permitAll();
     }
 
 }
