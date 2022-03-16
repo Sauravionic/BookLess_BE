@@ -112,6 +112,86 @@ a {
 .signup_second-word::before {
     color: #07e26a;
 }
+
+.action {
+    margin-left: 5%;
+    cursor: pointer;
+}
+.action .manu {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: -10px;
+    padding: 10px 20px;
+    width: 200px;
+    background-color: hsl(220, 13%, 13%);
+    box-sizing: 0 5px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    transition: 0.5s;
+    visibility: hidden;
+    opacity: 0;
+}
+.action .manu.active {
+    top: 106px;
+    visibility: visible;
+    opacity: 1;
+}
+.action .manu::before {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: 21%;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    transform: rotate(45deg);
+}
+
+.action .manu h3 {
+    width: 100%;
+    /* text-align: center; */
+    font-size: 18px;
+    /* padding: 20px 0; */
+    font-weight: 500;
+    font-size: 18px;
+    color: rgb(241, 236, 236);
+    line-height: 1.2em;
+}
+.action .manu ul {
+    padding: 0;
+}
+.action .manu ul li {
+    list-style: none;
+    padding: 10px 0;
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    direction: flex;
+    align-items: center;
+    justify-content: center;
+}
+.action .manu ul li a {
+    padding-left: 15%;
+    color: rgb(255, 255, 255);
+}
+.action .manu ul li a:hover {
+    color: #0c8040;
+}
+.fa-skull {
+    font-size: 25px;
+    color: #202f22;
+}
+.fa-skull:hover {
+    color: #0c8040;
+}
+.fa-flip {
+    color: rgb(241, 236, 236);
+    transition: all 0.2s;
+}
+.fa-flip:hover {
+    color: #0c8040;
+    transform: scale(1.2);
+}
+
+
 .darkmode {
     position: fixed;
     left: 20px;

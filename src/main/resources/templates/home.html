@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<html lang="en" xmlns:th="https://www.thymeleaf.org/" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -32,7 +32,7 @@
             
             
                     <li class="menu__item">
-                        <a href="#" class="menu__link">
+                        <a href="/newarrivals" class="menu__link">
                             <span class="menu__title">
                                 <span class="menu__first-word" data-hover="New">
                                     New
@@ -70,7 +70,8 @@
                         </a>
                     </li>
 
-                    <li class="menu__item">
+<!--                    If signed in then sign in and sign up won't show-->
+                    <li  sec:authorize="isAuthenticated()" class="menu__item">
                         <a href="/signin" class="menu__link">
                             <span class="menu__title">
                                 <span class="menu__first-word" data-hover="Sign">
@@ -83,7 +84,7 @@
                         </a>
                     </li>
 
-                    <li class="menu__item signup">
+                    <li sec:authorize="isAuthenticated()" class="menu__item signup">
                         <a href="/signup" class="menu__link signup_link">
                             <span class="menu__title">
                                 <span class="menu__first-word signup_first-word" data-hover="Sign">
@@ -95,6 +96,21 @@
                             </span>
                         </a>
                     </li>
+
+                    <div sec:authorize="!isAuthenticated()" class="action">
+                        <div class="profile" onclick="menuToggle();">
+                            <i class="fa-solid fa-skull"></i>
+                        </div>
+                        <div class="manu">
+                            <h3>User</h3>
+                            <ul>
+                                <li><i class="fa-solid fa-user-astronaut fa-flip" style="--fa-animation-duration: 3s;"></i> <a href="#">My Profile</a></li>
+                                <li><i class="fa-solid fa-user-gear fa-flip" style="--fa-animation-duration: 3s;"></i><a href="#">Edit Profile</a></li>
+                                <li><i class="fa-solid fa-handshake-angle fa-flip" style="--fa-animation-duration: 3s;"></i><a href="#">Help</a></li>
+                                <li><i class="fa-solid fa-right-from-bracket fa-flip" style="--fa-animation-duration: 3s;"></i><a href="/logout">Logout</a></li>
+                            </ul>
+                        </div>
+                    </div>
                 </ul>
             
             </div>
@@ -138,6 +154,11 @@
             <button id = "whiteButton" class="whiteButton hidden"></button>
         </div>
     </section>
-
+    <script>
+        function menuToggle() {
+            const toggleMenu = document.querySelector('.manu');
+            toggleMenu.classList.toggle('active');
+        }
+    </script>
 </body>
 </html>

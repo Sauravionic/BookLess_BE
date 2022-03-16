@@ -50,7 +50,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .loginPage("/signin")
                 .permitAll()
                 .loginProcessingUrl("/signin")
-                .defaultSuccessUrl("/signup")
+                .defaultSuccessUrl("/newarrivals")
                 .failureUrl("/signin?error")
                 .and()
                 .logout()
@@ -59,6 +59,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/signout"))
                 .logoutSuccessUrl("/signin?signout")
                 .permitAll();
+    }
+    @Autowired
+    public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception {
+        auth.inMemoryAuthentication()
+                .withUser("user").password("password").roles("USER");
     }
 
 }

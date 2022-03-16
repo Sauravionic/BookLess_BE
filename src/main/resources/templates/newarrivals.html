@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org/">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=seci, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" th:href="@{/css/newarrivals.css}">
+  <title>BookLess | New Arrivals</title>
+</head>
+<body>
+<section class="container">
+  <nav class="navigation">
+    <div class="logo">
+      <img
+              src="../Images/bookless_logo.png"
+              onclick="window.location.href = '/'"
+              alt="Logo"
+      />
+    </div>
+    <div class="options">
+      <ul class="menu">
+        <li class="menu__item">
+          <a href="/aboutus" class="menu__link">
+                    <span class="menu__title">
+                      <span class="menu__first-word" data-hover="About">
+                        About
+                      </span>
+                      <span class="menu__second-word" data-hover="Us"> Us </span>
+                    </span>
+          </a>
+        </li>
+
+        <li class="menu__item">
+          <a href="/newarrivals" class="menu__link">
+                    <span class="menu__title">
+                      <span class="menu__first-word" data-hover="New"> New </span>
+                      <span class="menu__second-word" data-hover="Arrivals">
+                        Arrivals
+                      </span>
+                    </span>
+          </a>
+        </li>
+
+        <li class="menu__item">
+          <a href="#" class="menu__link">
+                    <span class="menu__title">
+                      <span class="menu__first-word" data-hover="Our"> Our </span>
+                      <span class="menu__second-word" data-hover="Community">
+                        Commumity
+                      </span>
+                    </span>
+          </a>
+        </li>
+
+        <li class="menu__item">
+          <a href="/contactus" class="menu__link">
+                    <span class="menu__title">
+                      <span class="menu__first-word" data-hover="Contact">
+                        Contact
+                      </span>
+                      <span class="menu__second-word" data-hover="Us"> Us </span>
+                    </span>
+          </a>
+        </li>
+        <div class="action">
+          <div class="profile" onclick="menuToggle();">
+            <i class="fa-solid fa-skull"></i>
+          </div>
+          <div class="manu">
+            <h3>User</h3>
+            <ul>
+              <li><i class="fa-solid fa-user-astronaut fa-flip" style="--fa-animation-duration: 3s;"></i> <a href="#">My Profile</a></li>
+              <li><i class="fa-solid fa-user-gear fa-flip" style="--fa-animation-duration: 3s;"></i><a href="#">Edit Profile</a></li>
+              <li><i class="fa-solid fa-handshake-angle fa-flip" style="--fa-animation-duration: 3s;"></i><a href="#">Help</a></li>
+              <li><i class="fa-solid fa-right-from-bracket fa-flip" style="--fa-animation-duration: 3s;"></i><a href="/logout">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </ul>
+    </div>
+  </nav>
+
+</section>
+<script>
+  function menuToggle() {
+    const toggleMenu = document.querySelector('.manu');
+    toggleMenu.classList.toggle('active');
+  }
+</script>
+</body>
+</html>
