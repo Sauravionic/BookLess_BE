@@ -4,7 +4,7 @@ $(document).ready(function() {
         // console.log($("#urlinput").val());
         $.ajax({
             type : 'POST',
-            url : 'http://localhost:8080/signup',
+            url : 'http://localhost:8080/register',
             data : JSON.stringify({
                 "firstName" : $("#firstname").val(),
                 "lastName" : $("#lastname").val(),
@@ -13,28 +13,13 @@ $(document).ready(function() {
             }),
             contentType : "application/json; charset=utf-8",
             success : function(data) {
-                window.location.replace("http://localhost:8080/")
-                // $("#fullURL").html($("#urlinput").val());
-                // $("#shorturltext").html(data.short_url);
-                // $("#shorturltext").attr("href", data.short_url);
-                //
-                // $("#lab").css({display:"none"});
-                // $("#urlinput").css({'background-image':"none"});
-                // if($(".shortend").is(':hidden')) {
-                //     $(".shortend").css({display: "flex"});
-                //     console.log("work");
-                // }
-                // if($("#copy").html() === "Copied") {
-                //     $("#copy").html("Copy");
-                // }
+                alert("Verification Link Sent")
+                window.location.replace("http://localhost:8080/signin")
             },
-            error : function () {
-                $("#sign").html("error")
-                // $("#lab").css({display:"block"});
-                // $("#urlinput").css({'background-image':"url(images/icon-error.svg)"});
-                // if(($(".shortend").css('display') !== 'none')) {
-                //     $(".shortend").css({display: "none"});
-                // }
+            error : function (xhr, status, error) {
+                if(xhr.status == 400) {
+                    $("#error_span").html("User Already Exists")
+                }
             }
         });
     });

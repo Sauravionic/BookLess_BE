@@ -16,6 +16,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.xml.ws.Response;
 import java.util.List;
 import java.util.Optional;
 
@@ -32,8 +33,8 @@ public class SignUpRestController {
     @Autowired
     private ApplicationEventPublisher publisher;
 
-    @PostMapping("/signup")
-    public ResponseEntity<UserModel> registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
+    @PostMapping("/register")
+    public ResponseEntity<Status> registerUser(@RequestBody UserModel userModel, final HttpServletRequest request) {
 
         User user = userService.registerUser(userModel);
 
@@ -46,8 +47,7 @@ public class SignUpRestController {
             // Checks if user already exists through email and if true returns user already exists
             if (useer.getEmail().equals(user.getEmail())) {
                 System.out.println("User Already exists!");
-                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(userModel);
-//                return (ResponseEntity<UserModel>) ResponseEntity.status(HttpStatus.valueOf("USER ALREADY EXISTS"));
+                return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(Status.USER_ALREADY_EXISTS);
             }
         }
             userRepository.save(user);
@@ -55,24 +55,24 @@ public class SignUpRestController {
         publisher.publishEvent(new SignupCompleteEvent(
                 user, applicationUrl(request)
         ));
-        return ResponseEntity.of(Optional.of(userModel));
+        return ResponseEntity.status(HttpStatus.OK).body(Status.SUCCESS);
     }
 
     @GetMapping("/verifySignup")
-    public String verifyRegistration(@RequestParam("token") String token){
+    public ResponseEntity<Status> verifyRegistration(@RequestParam("token") String token){
         String result = userService.validateVerificationToken(token);
         if(result.equalsIgnoreCase("valid"))
-            return "User Verified Successfully";
-        return "Bad User";
+            return ResponseEntity.status(HttpStatus.OK).body(Status.USER_VERIFIED_SUCCESSFULLY);
+        return ResponseEntity.status(HttpStatus.BAD_GATEWAY).body(Status.BAD_USER);
     }
 
     @GetMapping("/resendVerifyToken")
-    public String reSendVerificationToken(@RequestParam("token") String oldToken, HttpServletRequest request){
+    public ResponseEntity<Status> reSendVerificationToken(@RequestParam("token") String oldToken, HttpServletRequest request){
 
         VerificationToken verificationToken = userService.generateNewVerificationToken(oldToken);
         User user = verificationToken.getUser();
         reSendVerificationTokenMail(user, applicationUrl(request), verificationToken);
-        return "Verification Link Sent";
+        return ResponseEntity.status(HttpStatus.OK).body(Status.VERIFICATION_LINK_SENT);
     }
 
     private void reSendVerificationTokenMail(User user, String applicationUrl, VerificationToken verificationToken) {
@@ -88,17 +88,4 @@ public class SignUpRestController {
     }
 
 
-//    @PostMapping
-//    public String registerUserAccount(@ModelAttribute("user") UserRegistrationDTO registrationDto, Model model) {
-//        try {
-//            userService.save(registrationDto);
-//        }
-//        catch(DataIntegrityViolationException e) {
-//            model.addAttribute("emailExists", "User already Exists !!!");
-//            emailError = true;
-//            return "signup";
-//        }
-//        return "redirect:/regsucess";
-//    }
-//
 }
