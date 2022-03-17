@@ -1,42 +1,80 @@
 package io.bookless.BookLess.Service;
 
-import io.bookless.BookLess.DTO.UserRegistrationDTO;
-import io.bookless.BookLess.Entity.Role;
 import io.bookless.BookLess.Entity.User;
+import io.bookless.BookLess.Entity.VerificationToken;
+import io.bookless.BookLess.Model.UserModel;
 import io.bookless.BookLess.Repository.UserRepository;
+import io.bookless.BookLess.Repository.VerificationTokenRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.stream.Collectors;
+import java.util.Calendar;
+import java.util.List;
+import java.util.UUID;
 
 @Service
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
+    @Autowired
     private UserRepository userRepository;
 
     @Autowired
+    private VerificationTokenRepository verificationTokenRepository;
+
+    //    @Autowired
+//    private PasswordEncoder passwordEncoder;
+    @Autowired
     private BCryptPasswordEncoder bCryptPasswordEncoder;
 
-    public UserServiceImpl(UserRepository userRepository) {
-        super();
-        this.userRepository = userRepository;
+    @Override
+    public User registerUser(UserModel userModel) {
+
+        User user = new User();
+        user.setFirstName(userModel.getFirstName());
+        user.setLastName(userModel.getLastName());
+        user.setEmail(userModel.getEmail());
+        String encodedPassword = bCryptPasswordEncoder.encode(userModel.getPassword());
+        user.setPassword(encodedPassword);
+        user.setRole("USER");
+
+//        userRepository.save(user);
+        return user;
     }
 
     @Override
-    public User save(UserRegistrationDTO registrationDTO) {
-
-        String encodedPassword = bCryptPasswordEncoder.encode(registrationDTO.getPassword());
-        User user = new User(registrationDTO.getFirstname(), registrationDTO.getLastname(), registrationDTO.getEmail(), encodedPassword, Arrays.asList(new Role("ROLE_USER")));
-        return userRepository.save(user);
+    public void saveVerificationTokenForUser(String token, User user) {
+        VerificationToken verificationToken = new VerificationToken(user, token);
+        verificationTokenRepository.save(verificationToken);
     }
 
+    @Override
+    public String validateVerificationToken(String token) {
+
+        VerificationToken verificationToken = verificationTokenRepository.findByToken(token);
+
+        if (verificationToken == null) return "invalid";
+
+        User user = verificationToken.getUser();
+        Calendar calendar = Calendar.getInstance();
+
+        if ((verificationToken.getExpirationTime().getTime() - calendar.getTime().getTime()) <= 0) {
+            verificationTokenRepository.delete(verificationToken);
+            return "expired";
+        }
+
+        user.setEnabled(true);
+        userRepository.save(user);
+            return "valid";
+    }
+
+    @Override
+    public VerificationToken generateNewVerificationToken(String oldToken) {
+
+        VerificationToken verificationToken = verificationTokenRepository.findByToken(oldToken);
+        verificationToken.setToken(UUID.randomUUID().toString());
+        verificationTokenRepository.save(verificationToken);
+        return verificationToken;
+    }
 }

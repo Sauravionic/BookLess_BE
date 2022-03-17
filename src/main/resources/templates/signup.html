@@ -7,6 +7,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" th:href="@{/css/signup.css}" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script
+            src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"
+            defer
+    ></script>
+    <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            defer
+    ></script>
+    <script th:src="@{/js/signup.js}" defer></script>
     <title>BookLess | SignUp</title>
 </head>
 <body>
@@ -99,34 +108,34 @@
         <div class="leftBody">
             <div class="headers">
                 <p>BookLess Inc.</p>
-                <h1>Sign Up</h1>
+                <h1 id="sign">Sign Up</h1>
             </div>
             <div class="formControl">
-                <form id="frm" th:action="@{/signup}" method="post" th:object="${user}">
+                <form id="frm" th:action="@{/signup}" method="post">
                     <div class="usernameDiv">
                         <div class="firstname">
                             <label for="firstname">First Name</label>
-                            <input type="text" name="firstname" th:field="*{firstname}" autocomplete="off" class="firstname" id="firstname" placeholder="First Name" required>
+                            <input type="text" name="firstname" autocomplete="off" class="firstname" id="firstname" placeholder="First Name" required>
                         </div>
                         <div class="lastname">
                             <label for="lastname">Last Name</label>
-                            <input type="text" name="lastname" th:field="*{lastname}" autocomplete="off" class="lastname" id="lastname" placeholder="Last Name" required>
+                            <input type="text" name="lastname" autocomplete="off" class="lastname" id="lastname" placeholder="Last Name" required>
                         </div>
                     </div>
                     <div class="emailDiv">
                         <label for="email">E-mail</label>
-                        <input type="email" name = "email" th:field="*{email}" autocomplete="off" class="email" id="email" placeholder="E-mail" required>
+                        <input type="email" name = "email" autocomplete="off" class="email" id="email" placeholder="E-mail" required>
                     </div>
                     <div class="passwordDiv">
                         <label for="password">Password</label>
-                        <input type="password" name="password" th:field="*{password}" autocomplete="off" id="password" class="password" placeholder="Password" required>
+                        <input type="password" name="password" autocomplete="off" id="password" class="password" placeholder="Password" required>
                     </div>
                     <div class="buttonDiv">
-                        <button type="submit" class="submit" id="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                        <button type="submit" class="submit" id="btn"><i class="fa-solid fa-arrow-right"></i></button>
                     </div>
 
                 </form>
-                <span class = "error_span" th:text="${emailExists}"></span>
+<!--                <span class = "error_span" th:text="${emailExists}"></span>-->
             </div>
         </div>
         <div class="rightBody">
@@ -136,5 +145,6 @@
         </div>
     </div>
 </section>
+<script></script>
 </body>
 </html>

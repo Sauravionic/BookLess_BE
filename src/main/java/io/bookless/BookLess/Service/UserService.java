@@ -1,10 +1,15 @@
 package io.bookless.BookLess.Service;
 
-import io.bookless.BookLess.DTO.UserRegistrationDTO;
 import io.bookless.BookLess.Entity.User;
-import org.springframework.security.core.userdetails.UserDetailsService;
+import io.bookless.BookLess.Entity.VerificationToken;
+import io.bookless.BookLess.Model.UserModel;
 
+public interface UserService {
+    User registerUser(UserModel userModel);
 
-public interface UserService{
-    User save(UserRegistrationDTO registrationDTO);
+    void saveVerificationTokenForUser(String token, User user);
+
+    String validateVerificationToken(String token);
+
+    VerificationToken generateNewVerificationToken(String oldToken);
 }
