@@ -3,6 +3,7 @@ package io.bookless.BookLess.Event.Listener;
 
 import io.bookless.BookLess.Entity.User;
 import io.bookless.BookLess.Event.SignupCompleteEvent;
+import io.bookless.BookLess.Service.EmailSenderService;
 import io.bookless.BookLess.Service.UserService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,9 @@ public class SignupCompleteEventListener implements ApplicationListener<SignupCo
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private EmailSenderService emailSenderService;
+
     @Override
     public void onApplicationEvent(SignupCompleteEvent event) {
 
@@ -28,8 +32,7 @@ public class SignupCompleteEventListener implements ApplicationListener<SignupCo
 
         //Send mail to user
         String url = event.getApplicationUrl() + "/verifySignup?token=" + token;
-
-        //Send Verification Email()
+        emailSenderService.sendSimpleEmail(user.getEmail(),"Thank you for registering on BookLess. Click on the link to verify yourself \n" + url, "User Verification");
         log.info("CLick the link to verify:{}",url);
     }
 }

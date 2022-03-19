@@ -5,16 +5,19 @@ import io.bookless.BookLess.Entity.VerificationToken;
 import io.bookless.BookLess.Model.UserModel;
 import io.bookless.BookLess.Repository.UserRepository;
 import io.bookless.BookLess.Repository.VerificationTokenRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
 @Service
+@AllArgsConstructor
 public class UserServiceImpl implements UserService {
 
     @Autowired
@@ -43,6 +46,8 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+
+
     @Override
     public void saveVerificationTokenForUser(String token, User user) {
         VerificationToken verificationToken = new VerificationToken(user, token);
@@ -60,7 +65,7 @@ public class UserServiceImpl implements UserService {
         Calendar calendar = Calendar.getInstance();
 
         if ((verificationToken.getExpirationTime().getTime() - calendar.getTime().getTime()) <= 0) {
-            verificationTokenRepository.delete(verificationToken);
+//            verificationTokenRepository.delete(verificationToken);
             return "expired";
         }
 
@@ -74,6 +79,10 @@ public class UserServiceImpl implements UserService {
 
         VerificationToken verificationToken = verificationTokenRepository.findByToken(oldToken);
         verificationToken.setToken(UUID.randomUUID().toString());
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTimeInMillis(new Date().getTime());
+        calendar.add(Calendar.MINUTE, 1);
+        verificationToken.setExpirationTime(new Date(calendar.getTime().getTime()));
         verificationTokenRepository.save(verificationToken);
         return verificationToken;
     }
