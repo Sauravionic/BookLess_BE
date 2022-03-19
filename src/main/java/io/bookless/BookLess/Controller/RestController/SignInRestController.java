@@ -50,7 +50,9 @@ public class SignInRestController {
                 log.info("logged in");
                 return ResponseEntity.status(HttpStatus.OK).body(Status.SUCCESS);
             }
-
+            else if((other.getEmail().equals(userModel.getEmail()) && !bCryptPasswordEncoder.matches(userModel.getPassword(),other.getPassword()))){
+                return ResponseEntity.status(HttpStatus.NOT_FOUND).body(Status.NOT_FOUND);
+            }
             else if((other.getEmail().equals(userModel.getEmail()) && bCryptPasswordEncoder.matches(userModel.getPassword(),other.getPassword())) && !other.isEnabled()) {
 
                 log.info("Not Verified");

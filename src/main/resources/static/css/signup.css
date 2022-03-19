@@ -275,7 +275,7 @@ form input {
     height: 12px;
     background-color: #ee303c;
     border-radius: 4px;
-    transition: 0.4s linear;
+    transition: 2s linear;
     transition-property: width, background-color;
 }
 

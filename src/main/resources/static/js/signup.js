@@ -69,4 +69,9 @@ $(document).ready(function() {
             });
         }
     });
+    $("#password").keypress(function(event) {
+        if (event.keyCode === 13) {
+            $("#btn").click();
+        }
+    });
 });
