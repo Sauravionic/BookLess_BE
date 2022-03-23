@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,400;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,500;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&family=Lora:ital,wght@0,400;0,600;0,700;1,500;1,700&display=swap');
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+body {
+    margin: 0;
+    height: 100vh;
+    background: #fefefe;
+    font-family: 'Lora', sans-serif;
+    overflow: hidden;
+}
+
+hr {
+    margin: 0;
+}
+.child_container {
+    display: flex;
+}
+.blob {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+}
+.navigation {
+    z-index: 999;
+    position: fixed;
+    border-right: 2px solid rgb(167, 166, 166);
+    padding-top: 2%;
+    padding-bottom: 2%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    flex-basis: 7%;
+    background-color: #ffff;
+}
+.navigation .logo img {
+    height: 100px;
+    width: 100px;
+}
+
+.options ul {
+    list-style: none;
+    padding: 0;
+    text-align: center;
+}
+
+.options ul li {
+    margin-bottom: 39px;
+}
+
+.fa-solid {
+    font-size: 25px;
+    color: black;
+    transition: all 0.3s;
+}
+.fa-solid:hover {
+    color: #0c8040;
+    transform: scale(1.2);
+}
+
+.profileoptions {
+    text-align: center;
+}
+
+.user-icon {
+    font-size: 32px;
+}
+
+.horizontal-hr {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+.mid_container {
+    margin-left: 7%;
+    flex-basis: 100%;
+    z-index: 2;
+}
+.mid_container .header h1 {
+    color: hsl(220, 13%, 13%);
+    font-size: 96px;
+    line-height: 96px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 700;
+    margin-top: 2.5%;
+    margin-bottom: 0;
+    font-family: 'Dancing Script', sans-serif;
+}
+
+.mid_container .header h3 {
+    color: hsl(220, 13%, 13%);
+    font-size: 46px;
+    line-height: 46px;
+    letter-spacing: 2px;
+    text-align: center;
+    font-weight: 600;
+    margin-top: 20px;
+    margin-bottom: 0;
+}
+.mid_container .header h1 span {
+    color: #067a3a;
+}
+.mid_container .header h3 span {
+    color: #067a3a;
+}
+
+.mid_container .midphoto {
+    text-align: center;
+    z-index: 1;
+}
+.mid_container .midphoto img {
+    height: 73vh;
+}
+
+.first_mid {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    padding-top: 2%;
+}
+.first_mid .first_left_photo img {
+    width: 600px;
+    height: 70vh;
+    margin-right: 30px;
+    margin-top: 4%;
+}
+
+.first_mid .first_right_content {
+    margin-top: 10%;
+    text-align: center;
+    flex-basis: 50%;
+}
+.first_right_content h2 {
+    font-size: 55px;
+    font-family: 'Dancing Script', sans-serif;
+    font-weight: 700;
+    letter-spacing: 1.4px;
+}
+
+.first_right_content p {
+    color: hsl(220, 13%, 13%);
+    opacity: 0.9;
+    line-height: 1.4;
+    letter-spacing: 1.2px;
+}
+.first_right_content p span {
+    color: #0c8040;
+}
+
+/* .go {
+	margin-top: 2%;
+	font-family: inherit;
+	letter-spacing: 1.5px;
+	font-size: 15px;
+	cursor: pointer;
+	font-weight: 600;
+	width: 200px;
+	height: 60px;
+	border: none;
+	background-color: #067a3a;
+	color: #fff;
+	border-radius: 20px;
+} */
+.button {
+    margin-top: 2%;
+    display: inline-block;
+    text-align: center;
+    background: var(--color);
+    color: var(--bg);
+    font-weight: bold;
+    padding: 1.18em 1.32em 1.03em;
+    line-height: 1;
+    border-radius: 1em;
+    position: relative;
+    min-width: 8.23em;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 1.25rem;
+    cursor: pointer;
+    transition: all 0.8s;
+}
+
+.button:hover {
+    background-color: #067a3a;
+    color: white;
+    border: none;
+}
+.upper_right .fa-solid {
+    position: absolute;
+    top: -1%;
+    right: 1%;
+    font-size: 40px;
+    cursor: pointer;
+    z-index: 999;
+    transition: all 0.4s;
+}
+
+.upper_right .fa-solid:hover {
+    /* transform: scale(1.2); */
+    font-size: 50px;
+    color: black;
+}
