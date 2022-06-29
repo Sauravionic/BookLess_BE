@@ -10,6 +10,7 @@ import java.util.Collection;
 
 @Entity
 @Data
+@Table(name = "users")
 public class User{
 
     @Id
