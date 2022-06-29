@@ -43,7 +43,7 @@ $(document).ready(function() {
             // console.log($("#urlinput").val());
             $.ajax({
                 type: 'POST',
-                url: 'http://localhost:8080/register',
+                url: 'https://booklesss.herokuapp.com/register',
                 data: JSON.stringify({
                     "firstName": $("#firstname").val(),
                     "lastName": $("#lastname").val(),
